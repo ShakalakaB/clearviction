@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Github Form</title>
+
+    <script defer src="form-handler.js"></script>
+
 </head>
 <body>
-
+<div>
+    <form id="githubForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="githubRepoUrl">GitHub Repo Url:</label>
+        <input type="url" id="githubRepoUrl" name="githubRepoUrl"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
 </body>
 </html>
