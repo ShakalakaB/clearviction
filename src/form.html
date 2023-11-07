@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Github Form</title>
 
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script defer src="form-handler.js"></script>
 
 </head>
 <body>
-<div>
+<div id="container">
     <form id="githubForm">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value=""><br><br>
+        <input type="email" id="email" name="email" required value="a@b"><br><br>
         <label for="githubRepoUrl">GitHub Repo Url:</label>
-        <input type="url" id="githubRepoUrl" name="githubRepoUrl"><br><br>
-        <input type="submit" value="Submit">
+        <input type="url" id="githubRepoUrl" name="githubRepoUrl" required><br><br>
+        <input id="submit" type="submit" value="Submit">
     </form>
 </div>
 </body>
