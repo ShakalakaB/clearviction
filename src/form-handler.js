@@ -1,18 +1,12 @@
-async function logMovies() {
-    const response = await fetch("https://cv-devs-temp-challenge.vercel.app/api/challenge");
-    const movies = await response.json();
-    console.log(movies);
-}
-
 document
     .getElementById("githubForm")
     .addEventListener("submit", onSubmit);
 
 async function onSubmit(event) {
     event.preventDefault();
-
-    let email = document.getElementById("email");
-    let githubRepoUrl = document.getElementById("githubRepoUrl");
+    const form = document.getElementById("githubForm");
+    const email = document.getElementById("email");
+    const githubRepoUrl = document.getElementById("githubRepoUrl");
 
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
@@ -29,7 +23,20 @@ async function onSubmit(event) {
     };
 
     fetch("https://cv-devs-temp-challenge.vercel.app/api/challenge", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(response => {
+                        throw new Error(response.error || "Something went wrong");
+                });
+            }
+            return response.json();
+        })
+        .then(result => {
+            alert(result.message);
+            form.reset();
+        })
+        .catch(error => {
+            alert(error.message);
+            console.error("Error:", error.message)
+        });
 }
