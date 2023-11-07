@@ -1,2 +1,2 @@
-# clearviction
+# Clearviction
 Clearviction technical challenge
